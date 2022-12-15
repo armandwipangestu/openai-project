@@ -1,10 +1,4 @@
-import { useState, Fragment } from "react";
-import { Menu, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
-
-const classNames = (...classes) => {
-  return classes.filter(Boolean).join(" ");
-};
+import { useState } from "react";
 
 const Navigation = () => {
   const [navbar, setNavbar] = useState(false);

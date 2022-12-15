@@ -97,10 +97,11 @@ const Image = () => {
                 {result.map((data, i) => {
                   return (
                     <React.Fragment key={i}>
-                      <a href={data.url} target="_blank">
+                      <a href={data.url} target="_blank" rel="noreferrer">
                         <img
                           className="max-w-lg rounded-lg w-full h-48"
                           src={data.url}
+                          alt={`${i}`}
                         />
                       </a>
                     </React.Fragment>
