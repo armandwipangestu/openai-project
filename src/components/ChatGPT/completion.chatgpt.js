@@ -23,7 +23,6 @@ const Completion = () => {
     });
     setLoading(false);
     setResult(res.data.choices[0].text);
-    // console.log(res.data);
   };
 
   return (
@@ -34,7 +33,15 @@ const Completion = () => {
         </h1>
         <p className="text-xs mt-3">
           Made with <FontAwesomeIcon icon={faHeart} className="text-red-600" />{" "}
-          by Arman
+          by{" "}
+          <a
+            href="https://github.com/armandwipangestu/openai-project"
+            className="text-blue-700"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Arman
+          </a>
         </p>
       </div>
       <div className="mr-5 ml-5 p-5 relative">
