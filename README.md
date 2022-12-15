@@ -1,9 +1,11 @@
 <h1 align="center">OpenAI - ChatGPT</h1>
-<p align="center">This Repository using OpenAI API to interact with ChatGPT</p>
+<p align="center">This Repository using OpenAI API to interact with ChatGPT. Built with ReactJS and Tailwind CSS</p>
 
-<img src="https://user-images.githubusercontent.com/64394320/207860253-5af12dc2-6f7f-4d55-9f26-6c9b0d5f63d9.png" alt="OpenAI - ChatGPT">
+<img src="https://user-images.githubusercontent.com/64394320/207903591-27168eae-1504-4f41-b44c-4accb11d0723.png" alt="OpenAI - ChatGPT">
 
-### Running on Localhost
+# Table of Contents
+
+## Running on Localhost
 
 - Clone this repository
 
@@ -33,6 +35,12 @@ REACT_APP_API_KEY="XXXXXXXXXXXXXXXXXXXXXXXXXX"
 npm start
 ```
 
-### Demo
+## Demo
 
-https://user-images.githubusercontent.com/64394320/207861721-cbf0f6fc-d35c-440b-a836-a52bb7765225.mp4
+- ChatGPT
+
+https://user-images.githubusercontent.com/64394320/207905117-abc7f0f1-e672-4d91-87f3-f38df7d228a2.mp4
+
+- Dall-E
+
+https://user-images.githubusercontent.com/64394320/207906275-12a8b417-29de-4afa-b3b6-dd8b0d55648b.mp4
