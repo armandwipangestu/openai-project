@@ -91,16 +91,18 @@ const Image = () => {
       ) : (
         <>
           {result.length > 0 ? (
-            <div className="mr-5 ml-5 px-4">
+            <div className="mr-5 ml-5 px-4 mb-7">
               <label className="block mb-2 text-sm font-medium">Result</label>
               <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
                 {result.map((data, i) => {
                   return (
                     <React.Fragment key={i}>
-                      <img
-                        className="max-w-lg rounded-lg w-full h-48"
-                        src={data.url}
-                      />
+                      <a href={data.url} target="_blank">
+                        <img
+                          className="max-w-lg rounded-lg w-full h-48"
+                          src={data.url}
+                        />
+                      </a>
                     </React.Fragment>
                   );
                 })}
