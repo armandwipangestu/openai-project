@@ -5,6 +5,9 @@
 
 # Table of Contents
 
+- [Running on Localhost](https://github.com/armandwipangestu/openai-project#running-on-localhost)
+- [Demo](https://github.com/armandwipangestu/openai-project#demo)
+
 ## Running on Localhost
 
 - Clone this repository
