@@ -27,7 +27,7 @@ const Completion = () => {
 
   return (
     <>
-      <div className="mt-5 text-center">
+      <div className="mt-2 text-center">
         <h1 className="font-medium underline underline-offset-8">
           OpenAI - ChatGPT
         </h1>
@@ -44,7 +44,7 @@ const Completion = () => {
           </a>
         </p>
       </div>
-      <div className="mr-5 ml-5 p-5 relative">
+      <div className="mt-5 relative">
         <label className="block mb-2 text-sm font-normal">
           Give AI Question
         </label>
@@ -52,7 +52,6 @@ const Completion = () => {
           <div className="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
             <textarea
               id="comment"
-              rows="7"
               className="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
               placeholder="Write a comment..."
               required
