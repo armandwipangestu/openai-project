@@ -27,15 +27,16 @@ const Completion = () => {
 
   return (
     <>
-      <div className="mt-5 relative">
-        <label className="block mb-2 text-sm font-normal text-white">
+      <div className="mt-10 relative">
+        <label className="block mb-2 text-sm md:text-lg font-normal text-gray-300">
           Give AI Question
         </label>
         <div className="w-full mb-4 border rounded-lg bg-dark-2 border-gray-600">
           <div className="px-4 py-2 rounded-t-lg bg-neutral-900">
             <textarea
               id="comment"
-              className="w-full px-0 text-sm border-0 bg-neutral-900 focus:ring-0 text-white placeholder-gray-400"
+              rows="5"
+              className="w-full px-0 text-sm md:text-lg border-0 bg-neutral-900 focus:ring-0 text-white placeholder-gray-500"
               placeholder="Write a comment..."
               required
               onChange={(e) => setPrompt(e.target.value)}
@@ -85,11 +86,11 @@ const Completion = () => {
         <>
           {result.length > 0 ? (
             <div>
-              <label className="block mb-2 text-sm font-medium text-white">
+              <label className="block mb-2 text-sm md:text-lg font-normal text-gray-300">
                 Result
               </label>
               <blockquote className="p-4 my-4 border-l-4 border-green-300 dark:border-green-300 bg-dark-2">
-                <p className="text-base font-medium leading-relaxed text-white">
+                <p className="text-base font-medium leading-relaxed text-gray-300">
                   {result}
                 </p>
               </blockquote>

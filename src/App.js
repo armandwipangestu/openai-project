@@ -5,6 +5,8 @@ import Dalle from "./components/Dall-E/main.dalle";
 import MainLayouts from "./components/Layouts/main.layouts";
 import Sidebar from "./components/Layouts/sidebar.layouts";
 import Octocat from "./components/Utilities/octocat";
+import Home from "./components/Home/main.home";
+import About from "./components/About/main.about";
 
 const App = () => {
   return (
@@ -17,6 +19,15 @@ const App = () => {
             <Routes>
               <Route
                 path="/"
+                element={
+                  <Home
+                    title="Let's do something fun with AI."
+                    description="OpenAI is an AI research and deployment company. Our mission is to ensure that artificial general intelligence benefits all of humanity."
+                  />
+                }
+              />
+              <Route
+                path="/chatgpt"
                 element={
                   <Chatgpt
                     title="ChatGPT"
@@ -33,6 +44,7 @@ const App = () => {
                   />
                 }
               />
+              <Route path="/about" element={<About />} />
             </Routes>
           </main>
         </div>

@@ -26,15 +26,16 @@ const Image = () => {
 
   return (
     <>
-      <div className="mt-5 relative">
-        <label className="block mb-2 text-sm font-normal text-white">
+      <div className="mt-10 relative">
+        <label className="block mb-2 text-sm md:text-lg font-normal text-gray-300">
           Give AI Text
         </label>
         <div className="w-full mb-4 border rounded-lg bg-dark-2 border-gray-600">
           <div className="px-4 py-2 rounded-t-lg bg-neutral-900">
             <textarea
               id="comment"
-              className="w-full px-0 text-sm border-0 bg-neutral-900 focus:ring-0 text-white placeholder-gray-400"
+              rows="5"
+              className="w-full px-0 text-sm md:text-lg border-0 bg-neutral-900 focus:ring-0 text-white placeholder-gray-500"
               placeholder="Write a comment..."
               required
               onChange={(e) => setPrompt(e.target.value)}
@@ -84,7 +85,7 @@ const Image = () => {
         <>
           {result.length > 0 ? (
             <div className="mb-5">
-              <label className="block mb-2 text-sm font-medium text-white">
+              <label className="block mb-2 text-sm md:text-lg font-normal text-gray-300">
                 Result
               </label>
               <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
