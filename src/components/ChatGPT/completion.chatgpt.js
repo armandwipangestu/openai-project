@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { Configuration, OpenAIApi } from "openai";
 
 const Completion = () => {
@@ -27,41 +27,24 @@ const Completion = () => {
 
   return (
     <>
-      <div className="mt-2 text-center">
-        <h1 className="font-medium underline underline-offset-8">
-          OpenAI - ChatGPT
-        </h1>
-        <p className="text-xs mt-3">
-          Made with <FontAwesomeIcon icon={faHeart} className="text-red-600" />{" "}
-          by{" "}
-          <a
-            href="https://github.com/armandwipangestu/openai-project"
-            className="text-blue-700"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Arman
-          </a>
-        </p>
-      </div>
       <div className="mt-5 relative">
-        <label className="block mb-2 text-sm font-normal">
+        <label className="block mb-2 text-sm font-normal text-white">
           Give AI Question
         </label>
-        <div className="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
-          <div className="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
+        <div className="w-full mb-4 border rounded-lg bg-dark-2 border-gray-600">
+          <div className="px-4 py-2 rounded-t-lg bg-neutral-900">
             <textarea
               id="comment"
-              className="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
+              className="w-full px-0 text-sm border-0 bg-neutral-900 focus:ring-0 text-white placeholder-gray-400"
               placeholder="Write a comment..."
               required
               onChange={(e) => setPrompt(e.target.value)}
             ></textarea>
           </div>
-          <div className="flex items-end justify-end px-3 py-2 border-t dark:border-gray-600">
+          <div className="flex items-end justify-end px-3 py-2 border-t border-gray-600">
             <button
               type="submit"
-              className="flex items-end py-2.5 px-4 text-xs font-medium text-center text-white bg-green-700 rounded-lg focus:ring-4 focus:ring-green-200 dark:focus:ring-green-900 hover:bg-green-800"
+              className="flex items-end py-2.5 px-4 text-xs font-medium text-center text-white bg-neutral-900 rounded-lg focus:ring-4 focus:ring-gray-200 hover:bg-neutral-700"
               onClick={generateCompletion}
             >
               <FontAwesomeIcon icon={faPaperPlane} />
@@ -76,11 +59,11 @@ const Completion = () => {
             <button
               disabled
               type="button"
-              className="py-2.5 px-5 mr-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 items-center"
+              className="py-2.5 px-5 mr-2 text-sm font-medium rounded-lg border bg-neutral-900 border-gray-600 text-white items-center"
             >
               <svg
                 role="status"
-                className="inline mr-2 w-4 h-4 text-gray-200 animate-spin dark:text-gray-600"
+                className="inline mr-2 w-4 h-4 text-white animate-spin"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -101,10 +84,12 @@ const Completion = () => {
       ) : (
         <>
           {result.length > 0 ? (
-            <div className="mr-5 ml-5 px-4">
-              <label className="block mb-2 text-sm font-medium">Result</label>
-              <blockquote className="p-4 my-4 bg-gray-200 border-l-4 border-green-300 dark:border-green-300 dark:bg-gray-600">
-                <p className="text-base font-medium leading-relaxed text-gray-900 dark:text-white">
+            <div>
+              <label className="block mb-2 text-sm font-medium text-white">
+                Result
+              </label>
+              <blockquote className="p-4 my-4 border-l-4 border-green-300 dark:border-green-300 bg-dark-2">
+                <p className="text-base font-medium leading-relaxed text-white">
                   {result}
                 </p>
               </blockquote>
