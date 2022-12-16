@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCircleArrowLeft,
-  faCircleArrowRight,
-  faBars,
-  faXmark,
-  faMessage,
-  faImage,
-} from "@fortawesome/free-solid-svg-icons";
+import { faMessage, faImage } from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
@@ -22,6 +15,8 @@ const Sidebar = () => {
         return faMessage;
       case "faImage":
         return faImage;
+      default:
+        return "";
     }
   };
 
@@ -31,30 +26,10 @@ const Sidebar = () => {
         open ? "w-44 md:w-72" : "w-12 md:w-16"
       } relative duration-300 sidebar`}
     >
-      {/* {open ? (
-        <>
-          <FontAwesomeIcon
-            icon={faXmark}
-            className={`cursor-pointer absolute -right-10 top-8 md:top-7 w-7 text-4xl text-black`}
-            onClick={() => {
-              setOpen(!open);
-            }}
-          />
-        </>
-      ) : (
-        <>
-          <FontAwesomeIcon
-            icon={faBars}
-            className={`cursor-pointer absolute -right-10 top-8 md:top-7 w-7 text-4xl text-black`}
-            onClick={() => {
-              setOpen(!open);
-            }}
-          />
-        </>
-      )} */}
       <div className="flex items-center">
         <img
           src="openai.png"
+          alt="OpenAI Logo"
           className={`cursor-pointer duration-500 ${
             open && "rotate-[360deg]"
           } w-8 h-8 ml-1.5 mt-8 md:ml-3 md:mt-7`}
@@ -92,53 +67,6 @@ const Sidebar = () => {
         ))}
       </ul>
     </div>
-    // <div
-    //   className={`${
-    //     open ? "w-44 md:w-72" : "w-12 md:w-16"
-    //   } duration-700 h-screen relative bg-green-600`}
-    // >
-    //   {open ? (
-    //     <>
-    //       <FontAwesomeIcon
-    //         icon={faXmark}
-    //         className={`cursor-pointer absolute -right-3 top-3.5 md:top-3.5 w-7 text-4xl text-black`}
-    //         onClick={() => {
-    //           setOpen(!open);
-    //         }}
-    //       />
-    //     </>
-    //   ) : (
-    //     <>
-    //       <FontAwesomeIcon
-    //         icon={faBars}
-    //         className={`cursor-pointer absolute -right-10 top-3.5 md:top-3.5 w-7 text-4xl text-black`}
-    //         onClick={() => {
-    //           setOpen(!open);
-    //         }}
-    //       />
-    //     </>
-    //   )}
-    //   <div className="flex gap-x-4 items-center">
-    //     <div className="px-2 py-4 md:p-4 flex">
-    //       <img
-    //         src="openai.png"
-    //         className="cursor-pointer duration-500 w-8 h-8"
-    //       />
-    //       <h1
-    //         className={`text-dark origin-left font-medium font-xl text-2xl duration-500 ml-2 ${
-    //           !open && "scale-0"
-    //         }`}
-    //       >
-    //         OpenAI
-    //       </h1>
-    //     </div>
-    //     <ul>
-    //       {menus.map((menu, i) => {
-    //         return <li key={i}>{menu.title}</li>;
-    //       })}
-    //     </ul>
-    //   </div>
-    // </div>
   );
 };
 

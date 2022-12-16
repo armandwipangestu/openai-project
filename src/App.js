@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Chatgpt from "./components/ChatGPT/main.chatgpt";
 import Dalle from "./components/Dall-E/main.dalle";
 import MainLayouts from "./components/Layouts/main.layouts";
-import Navigation from "./components/Layouts/navbar.layouts";
 import Sidebar from "./components/Layouts/sidebar.layouts";
 
 const App = () => {
