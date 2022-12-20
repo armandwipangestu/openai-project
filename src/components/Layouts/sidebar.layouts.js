@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMessage,
-  faImage,
+  faImages,
   faInfoCircle,
   faQuestionCircle,
+  faHouse,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
-  const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [open, setOpen] = useState(null);
+  const [attention, setAttention] = useState(true);
   const menus = [
+    { title: "Home", link: "/", icon: "faHouse" },
     { title: "ChatGPT", link: "/chatgpt", icon: "faMessage" },
-    { title: "Dall-E", link: "/dall-e", icon: "faImage" },
+    { title: "Dall·E", link: "/dall-e", icon: "faImages" },
     { title: "About", link: "/about", icon: "faQuestionCircle" },
   ];
 
@@ -20,14 +24,28 @@ const Sidebar = () => {
     switch (icon) {
       case "faMessage":
         return faMessage;
-      case "faImage":
-        return faImage;
+      case "faImages":
+        return faImages;
       case "faQuestionCircle":
         return faQuestionCircle;
+      case "faHouse":
+        return faHouse;
       default:
         return "";
     }
   };
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 600px)");
+    // setIsMobile(mediaQuery.matches);
+    setOpen(!mediaQuery.matches);
+
+    const handleMediaQueryChange = (e) => setIsMobile(e.matches);
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    return () =>
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+  }, []);
 
   return (
     <div
@@ -46,14 +64,13 @@ const Sidebar = () => {
             setOpen(!open);
           }}
         />
-        <NavLink
-          to="/"
+        <div
           className={`text-white origin-left font-medium text-2xl duration-200 ml-1.5 mt-8 md:mt-7 ${
             !open && "scale-0"
           }`}
         >
           <h1 style={{ font: "charter" }}>OpenAI</h1>
-        </NavLink>
+        </div>
       </div>
       <ul className="pt-6">
         {menus.map((menu, index) => (
@@ -65,7 +82,7 @@ const Sidebar = () => {
             key={index}
           >
             <li
-              className={`flex rounded-md p-2 cursor-pointer md:hover:bg-gray-700 text-sm items-center gap-x-4`}
+              className={`flex rounded-md p-2 cursor-pointer md:hover:bg-gray-700 text-sm items-center gap-x-4 mb-2 md:mb-4`}
             >
               <FontAwesomeIcon
                 icon={handleIcon(menu.icon)}
@@ -88,7 +105,7 @@ const Sidebar = () => {
           icon={faInfoCircle}
           className={`text-base mr-2 md:text-lg md:mr-6 ${
             open && "hidden"
-          } cursor-pointer`}
+          } cursor-pointer ${!attention ? "hidden" : ""}`}
           onClick={() => {
             setOpen(!open);
           }}
@@ -96,10 +113,12 @@ const Sidebar = () => {
         <div
           className={`${open && "bg-dark-2"} ${
             !open && "hidden"
-          } px-4 py-4 rounded-lg`}
+          } px-4 py-4 rounded-lg ${!attention ? "hidden" : ""}`}
         >
           <div className={`flex items-center mb-3 ${!open && "hidden"}`}>
-            <span className="bg-red-400 text-gray-800 text-xs md:text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
+            <span
+              className={`bg-red-400 text-gray-800 text-xs md:text-sm font-semibold mr-2 px-2.5 py-0.5 rounded`}
+            >
               Attention
             </span>
             <button
@@ -108,7 +127,7 @@ const Sidebar = () => {
               data-collapse-toggle="dropdown-cta"
               aria-label="Close"
               onClick={() => {
-                setOpen(!open);
+                setAttention(!attention);
               }}
             >
               <span className="sr-only">Close</span>
