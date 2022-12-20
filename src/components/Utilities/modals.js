@@ -14,7 +14,7 @@ const Modals = ({ onClose, visible, url, prompt }) => {
     <>
       <div className="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-sm flex justify-center items-center">
         <img className="max-w-lg rounded-lg w-full" src={url} />
-        <div className="absolute bottom-32 md:bottom-40 space-x-2 rounded-b dark:border-gray-600">
+        <div className="absolute bottom-20 md:bottom-40 space-x-2 rounded-b dark:border-gray-600">
           <button
             type="button"
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
