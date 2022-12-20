@@ -89,7 +89,9 @@ const Sidebar = () => {
                 className={`text-base ml-1.5 md:text-lg md:ml-2.5`}
               />
               <span
-                className={`${!open && "scale-0"} origin-left duration-200`}
+                className={`${
+                  !open && "scale-0"
+                } origin-left duration-200 md:text-lg`}
               >
                 {menu.title}
               </span>
