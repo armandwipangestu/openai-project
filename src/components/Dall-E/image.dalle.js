@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import Modals from "../Utilities/modals";
 import { Configuration, OpenAIApi } from "openai";
 
 const Image = () => {
   const [prompt, setPrompt] = useState("");
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [modalUrl, setModalUrl] = useState(null);
+  const handleOnClose = () => setShowModal(false);
   const configuration = new Configuration({
     apiKey: process.env.REACT_APP_API_KEY,
   });
@@ -88,20 +92,31 @@ const Image = () => {
               <label className="block mb-2 text-sm md:text-lg font-normal text-gray-300">
                 Result
               </label>
-              <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
                 {result.map((data, i) => {
                   return (
                     <React.Fragment key={i}>
-                      <a href={data.url} target="_blank" rel="noreferrer">
+                      <button
+                        onClick={() => {
+                          setShowModal(true);
+                          setModalUrl(data.url);
+                        }}
+                      >
                         <img
                           className="max-w-lg rounded-lg w-full h-48"
                           src={data.url}
                           alt={`${i}`}
                         />
-                      </a>
+                      </button>
                     </React.Fragment>
                   );
                 })}
+                <Modals
+                  onClose={handleOnClose}
+                  visible={showModal}
+                  url={modalUrl}
+                  name={prompt}
+                />
               </div>
             </div>
           ) : (
