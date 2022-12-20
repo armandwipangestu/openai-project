@@ -82,7 +82,7 @@ const Sidebar = () => {
             key={index}
           >
             <li
-              className={`flex rounded-md p-2 cursor-pointer md:hover:bg-gray-700 text-sm items-center gap-x-4 mb-2 md:mb-4`}
+              className={`flex rounded-md py-3 md:py-4 px-2 cursor-pointer md:hover:bg-gray-500/10 text-sm items-center gap-x-4`}
             >
               <FontAwesomeIcon
                 icon={handleIcon(menu.icon)}
