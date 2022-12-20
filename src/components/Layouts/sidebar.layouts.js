@@ -100,12 +100,12 @@ const Sidebar = () => {
         ))}
       </ul>
       <div
-        className="px-5 mb-8 md:mb-5 rounded-lg bottom-0 absolute text-gray-300"
+        className="px-3.5 mb-8 md:mb-5 rounded-lg bottom-0 absolute text-gray-300"
         role="alert"
       >
         <FontAwesomeIcon
           icon={faInfoCircle}
-          className={`text-base mr-2 md:text-lg md:mr-6 ${
+          className={`text-base md:text-lg md:mr-6 ${
             open && "hidden"
           } cursor-pointer ${!attention ? "hidden" : ""}`}
           onClick={() => {
