@@ -100,7 +100,7 @@ const Sidebar = () => {
         ))}
       </ul>
       <div
-        className="px-3.5 mb-8 md:mb-5 rounded-lg bottom-0 absolute text-gray-300"
+        className="px-3.5 md:px-5 mb-8 md:mb-5 rounded-lg bottom-0 absolute text-gray-300"
         role="alert"
       >
         <FontAwesomeIcon
