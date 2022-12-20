@@ -60,7 +60,7 @@ const Sidebar = () => {
           <NavLink
             to={menu.link}
             style={({ isActive }) => ({
-              color: isActive ? "rgb(209 213 219)" : "rgb(107 114 128)",
+              color: isActive ? "#FFFFFF" : "rgb(107 114 128)",
             })}
             key={index}
           >
