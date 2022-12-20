@@ -31,27 +31,6 @@ const Modals = ({ onClose, visible, url, prompt }) => {
           </button>
         </div>
       </div>
-
-      {/* <div className="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-sm flex justify-center items-center">
-        <img className="max-w-lg rounded-lg w-full" src={url} />
-      </div>
-      <div className="fixed inset-0 flex justify-center items-center flex-row">
-        <div className="">
-          <button
-            className=" bottom-5 bg-red-600 text-white px-4 py-1 rounded hover:bg-red-700"
-            onClick={onClose}
-          >
-            X
-          </button>
-        </div>
-        <div className="">
-          <a href={url} download>
-            <button className=" bottom-5 bg-red-600 text-white px-4 py-1 rounded hover:bg-red-700">
-              Download Image
-            </button>
-          </a>
-        </div>
-      </div> */}
     </>
   );
 };
