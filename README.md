@@ -1,11 +1,12 @@
 <h1 align="center">OpenAI - ChatGPT</h1>
 <p align="center">This Repository using OpenAI API to interact with ChatGPT. Built with ReactJS and Tailwind CSS</p>
 
-<img src="https://user-images.githubusercontent.com/64394320/207903591-27168eae-1504-4f41-b44c-4accb11d0723.png" alt="OpenAI - ChatGPT">
+<img src="https://user-images.githubusercontent.com/64394320/208843797-deff06e3-9728-4642-bc23-4f97461e0b8e.png" alt="OpenAI Project">
 
 # Table of Contents
 
 - [Running on Localhost](https://github.com/armandwipangestu/openai-project#running-on-localhost)
+- [How to get API key?](https://github.com/armandwipangestu/openai-project#how-to-get-api-key?)
 - [Demo](https://github.com/armandwipangestu/openai-project#demo)
 
 ## Running on Localhost
@@ -38,12 +39,16 @@ REACT_APP_API_KEY="XXXXXXXXXXXXXXXXXXXXXXXXXX"
 npm start
 ```
 
+### How to get API key?
+
+You must first register on the [openai website](https://beta.openai.com/), then click the profile menu and select `View API keys`
+
 ## Demo
 
 - ChatGPT
 
-https://user-images.githubusercontent.com/64394320/207905117-abc7f0f1-e672-4d91-87f3-f38df7d228a2.mp4
+https://user-images.githubusercontent.com/64394320/208843842-e822b776-cc68-4f82-a3a9-28c8da0bdb9c.mp4
 
 - Dall-E
 
-https://user-images.githubusercontent.com/64394320/207906275-12a8b417-29de-4afa-b3b6-dd8b0d55648b.mp4
+https://user-images.githubusercontent.com/64394320/208843936-b646c7b9-81e2-490e-92db-73bc304990b6.mp4
