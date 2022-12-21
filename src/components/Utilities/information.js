@@ -27,7 +27,17 @@ const Information = ({ link }) => {
         </div>
         <div className="mt-2 mb-4 text-sm text-blue-900">
           Because my API Key has reached the limit, the input form is disabled,
-          to see how this works I have provided the video below
+          to see how this works I have provided the video below, if you want to
+          try it please read{" "}
+          <a
+            href="https://github.com/armandwipangestu/openai-project#running-on-localhost"
+            target="_blank"
+            rel="noreferrer"
+            className="underline"
+          >
+            this
+          </a>
+          .
         </div>
       </div>
       <video className="w-full max-w-full h-auto" controls>

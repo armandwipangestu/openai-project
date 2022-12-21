@@ -71,6 +71,15 @@ const Completion = () => {
         </div>
       </div>
 
+      {/* 
+      
+      |--------------------------------------------------------------------------
+      | NOTE: Give Comment on the Component below to remove
+      |--------------------------------------------------------------------------
+      | 
+      |
+
+      */}
       <Information link="/chatgpt.mp4" />
 
       {loading ? (
