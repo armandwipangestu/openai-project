@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import Modals from "../Utilities/modals";
+import Information from "../Utilities/information";
 import { Configuration, OpenAIApi } from "openai";
 
 const Image = () => {
@@ -43,19 +44,37 @@ const Image = () => {
               placeholder="Write a comment..."
               required
               onChange={(e) => setPrompt(e.target.value)}
+              //
+              // |--------------------------------------------------------------------------
+              // | NOTE: Give Comment on the two attributes below to enable input
+              // |--------------------------------------------------------------------------
+              // |
+              // |
+              //
+              disabled
+              readOnly
             ></textarea>
           </div>
           <div className="flex items-end justify-end px-3 py-2 border-t border-gray-600">
             <button
               type="submit"
               className="flex items-end py-2.5 px-4 text-xs font-medium text-center text-white bg-neutral-900 rounded-lg focus:ring-4 focus:ring-gray-200 hover:bg-neutral-700"
-              onClick={generateImage}
+              //
+              // |--------------------------------------------------------------------------
+              // | NOTE: Uncomment this attribute 'onClick' to hit API OpenAI
+              // |--------------------------------------------------------------------------
+              // |
+              // |
+              //
+              // onClick={generateImage}
             >
               <FontAwesomeIcon icon={faPaperPlane} />
             </button>
           </div>
         </div>
       </div>
+
+      <Information link="/dalle.mp4" />
 
       {loading ? (
         <>

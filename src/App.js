@@ -6,7 +6,7 @@ import MainLayouts from "./components/Layouts/main.layouts";
 import Sidebar from "./components/Layouts/sidebar.layouts";
 import Octocat from "./components/Utilities/octocat";
 import Home from "./components/Home/main.home";
-import About from "./components/About/main.about";
+import FAQ from "./components/FAQ/main.faq";
 
 const App = () => {
   return (
@@ -44,7 +44,7 @@ const App = () => {
                   />
                 }
               />
-              <Route path="/about" element={<About />} />
+              <Route path="/question" element={<FAQ />} />
             </Routes>
           </main>
         </div>

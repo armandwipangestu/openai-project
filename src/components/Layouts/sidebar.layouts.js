@@ -17,7 +17,7 @@ const Sidebar = () => {
     { title: "Home", link: "/", icon: "faHouse" },
     { title: "ChatGPT", link: "/chatgpt", icon: "faMessage" },
     { title: "Dall·E", link: "/dall-e", icon: "faImages" },
-    { title: "About", link: "/about", icon: "faQuestionCircle" },
+    { title: "FAQ", link: "/question", icon: "faQuestionCircle" },
   ];
 
   const handleIcon = (icon) => {
