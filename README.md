@@ -6,7 +6,7 @@
 # Table of Contents
 
 - [Running on Localhost](https://github.com/armandwipangestu/openai-project#running-on-localhost)
-- [How to get API key?](https://github.com/armandwipangestu/openai-project#how-to-get-api-key?)
+- [How to get API key?](https://github.com/armandwipangestu/openai-project#how-to-get-api-key)
 - [Demo](https://github.com/armandwipangestu/openai-project#demo)
 
 ## Running on Localhost
