@@ -40,13 +40,13 @@ REACT_APP_API_KEY="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 npm start
 ```
 
-### How to get API key?
+## How to get API key?
 
 > **NOTE**: Please take care of your API Key as OpenAI limits usage to $18.00 USD
 
 You must first register on the [openai website](https://beta.openai.com/), then click the profile menu and select `View API keys`
 
-### Information
+## Information
 
 > Because my API Key has reached the limit, the input form is disabled
 
