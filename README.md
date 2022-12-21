@@ -1,5 +1,5 @@
-<h1 align="center">OpenAI - ChatGPT</h1>
-<p align="center">This Repository using OpenAI API to interact with ChatGPT. Built with ReactJS and Tailwind CSS</p>
+<h1 align="center">OpenAI - Project</h1>
+<p align="center">This Repository using OpenAI API to interact with ChatGPT & Dall·E 2. Built with ReactJS and Tailwind CSS</p>
 
 <img src="https://user-images.githubusercontent.com/64394320/208843797-deff06e3-9728-4642-bc23-4f97461e0b8e.png" alt="OpenAI Project">
 
