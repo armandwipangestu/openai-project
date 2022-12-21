@@ -41,7 +41,7 @@ const FAQ = () => {
             <h1 className="text-white text-base md:text-2xl">
               <FontAwesomeIcon
                 icon={faPaperclip}
-                className="mr-3 text-gray-400"
+                className="mr-3 text-gray-400 md:text-xl"
               />
               {list.question}
             </h1>
