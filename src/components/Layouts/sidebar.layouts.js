@@ -51,21 +51,21 @@ const Sidebar = () => {
     <div
       className={` ${
         open ? "w-44 md:w-72" : "w-12 md:w-16"
-      } sidebar bg-dark h-screen sticky top-0`}
+      } sidebar h-screen sticky top-0`}
     >
-      <div className="flex items-center">
+      <div className={`flex items-center`}>
         <img
-          src="openai-light.png"
+          src="openai-dark.png"
           alt="OpenAI Logo"
           className={`cursor-pointer duration-500 ${
             open && "rotate-[360deg]"
-          } w-8 h-8 ml-1.5 mt-8 md:ml-3 md:mt-7 md:hover:rotate-[360deg]`}
+          } w-6 h-6 ml-3 mt-8 md:ml-4 md:mt-7 md:hover:rotate-[360deg]`}
           onClick={() => {
             setOpen(!open);
           }}
         />
         <div
-          className={`text-white origin-left font-medium text-2xl duration-200 ml-1.5 mt-8 md:mt-7 ${
+          className={`text-black origin-left font-medium text-2xl duration-200 ml-1.5 mt-8 md:mt-7 ${
             !open && "scale-0"
           }`}
         >
@@ -77,12 +77,13 @@ const Sidebar = () => {
           <NavLink
             to={menu.link}
             style={({ isActive }) => ({
-              color: isActive ? "#FFFFFF" : "rgb(107 114 128)",
+              color: isActive ? "rgb(31 41 55 / 1)" : "rgb(107 114 128 / 1)",
             })}
             key={index}
           >
             <li
-              className={`flex rounded-md py-3 md:py-4 px-2 cursor-pointer md:hover:bg-gray-500/10 text-sm items-center gap-x-4`}
+              className={`flex rounded-md py-3 md:py-4 px-2 cursor-pointer md:hover:bg-gray-500/10
+             text-sm items-center gap-x-4`}
             >
               <FontAwesomeIcon
                 icon={handleIcon(menu.icon)}
@@ -100,7 +101,7 @@ const Sidebar = () => {
         ))}
       </ul>
       <div
-        className="px-3.5 md:px-5 mb-8 md:mb-5 rounded-lg bottom-0 absolute text-gray-300"
+        className="px-3.5 md:px-5 mb-8 md:mb-5 rounded-lg md:bottom-0 bottom-10 absolute text-gray-600"
         role="alert"
       >
         <FontAwesomeIcon
@@ -113,19 +114,19 @@ const Sidebar = () => {
           }}
         />
         <div
-          className={`${open && "bg-dark-2"} ${
+          className={`${open && "border border-b-4 border-r-4 border-black"} ${
             !open && "hidden"
           } px-4 py-4 rounded-lg ${!attention ? "hidden" : ""}`}
         >
           <div className={`flex items-center mb-3 ${!open && "hidden"}`}>
             <span
-              className={`bg-red-400 text-gray-800 text-xs md:text-sm font-semibold mr-2 px-2.5 py-0.5 rounded`}
+              className={`border border-b-4 border-r-4 border-red-600 text-red-900 text-xs md:text-sm font-semibold mr-2 px-2.5 py-0.5 rounded`}
             >
               Attention
             </span>
             <button
               type="button"
-              className="ml-auto -mx-1.5 -my-1.5 bg-neutral-900 text-white rounded-lg focus:ring-2 focus:ring-gray-200 p-1 hover:bg-neutral-700 inline-flex h-6 w-6"
+              className="ml-auto -mx-1.5 -my-1.5 border border-b-4 border-r-4 border-black text-black rounded-sm focus:ring-2 focus:ring-gray-200 p-0.5 inline-flex h-6 w-6"
               data-collapse-toggle="dropdown-cta"
               aria-label="Close"
               onClick={() => {

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import TextareaAutosize from "react-textarea-autosize";
 import Information from "../Utilities/information";
 import { Configuration, OpenAIApi } from "openai";
 
@@ -28,16 +29,51 @@ const Completion = () => {
 
   return (
     <>
-      <div className="mt-10 relative">
-        <label className="block mb-2 text-sm md:text-lg font-normal text-gray-300">
+      {/* <div className="mt-10"> */}
+      {/* <label className="block mb-2 text-sm md:text-lg font-normal text-dark">
           Give AI Question
-        </label>
-        <div className="w-full mb-4 border rounded-lg bg-dark-2 border-gray-600">
-          <div className="px-4 py-2 rounded-t-lg bg-neutral-900">
-            <textarea
+        </label> */}
+      <div className="flex absolute bottom-0 w-9/12 mb-4 border border-b-4 border-r-4 border-black rounded-lg bg-white shadow-lg">
+        <div className="px-4 py-2 rounded-t-lg">
+          <div className="flex absolute bottom-0 right-0 pb-5 pr-2 md:pb-5 md:pr-3">
+            <button
+              type="submit"
+              className="items-end py-2.5 px-4 text-xs font-medium text-center text-black rounded-lg focus:ring-4 hover:bg-gray-300"
+              //
+              // |--------------------------------------------------------------------------
+              // | NOTE: Uncomment this attribute 'onClick' to hit API OpenAI
+              // |--------------------------------------------------------------------------
+              // |
+              // |
+              //
+              // onClick={generateCompletion}
+            >
+              <FontAwesomeIcon
+                icon={faPaperPlane}
+                style={{ transform: "rotate(53deg)" }}
+              />
+            </button>
+          </div>
+          <TextareaAutosize
+            className="bg-white w-full border border-b-4 border-r-4 border-black rounded-sm placeholder-gray-500 focus:ring-0 pr-12 resize-none py-2"
+            onChange={(e) => setPrompt(e.target.value)}
+            // tabIndex="0"
+          />
+          {/* <textarea
+              className="bg-white w-full border border-b-4 border-r-4 border-black rounded-sm placeholder-gray-500 focus:ring-0 px-0 resize-none"
+              tabIndex="0"
+              rows="1"
+              placeholder
+              style={{ overflowY: "hidden" }}
+            ></textarea> */}
+        </div>
+      </div>
+      {/* <div className="w-full mb-4 border border-b-4 border-r-4 border-white rounded-lg bg-dark-2 ">
+           <div className="px-4 py-2 rounded-t-lg">
+            <input
               id="comment"
-              rows="5"
-              className="w-full px-0 text-sm md:text-lg border-0 bg-neutral-900 focus:ring-0 text-white placeholder-gray-500"
+              // rows="5"
+              className="w-full px-0 text-sm md:text-lg focus:ring-0 text-white placeholder-gray-500"
               placeholder="Write a comment..."
               required
               onChange={(e) => setPrompt(e.target.value)}
@@ -48,9 +84,9 @@ const Completion = () => {
               // |
               // |
               //
-              disabled
-              readOnly
-            ></textarea>
+              // disabled
+              // readOnly
+            ></input>
           </div>
           <div className="flex items-end justify-end px-3 py-2 border-t border-gray-600">
             <button
@@ -68,8 +104,8 @@ const Completion = () => {
               <FontAwesomeIcon icon={faPaperPlane} />
             </button>
           </div>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
 
       {/* 
       
@@ -80,7 +116,7 @@ const Completion = () => {
       |
 
       */}
-      <Information link="/chatgpt.mp4" />
+      {/* <Information link="/chatgpt.mp4" /> */}
 
       {loading ? (
         <>

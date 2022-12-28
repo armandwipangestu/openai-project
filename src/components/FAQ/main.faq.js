@@ -37,15 +37,17 @@ const FAQ = () => {
     <>
       <div className="p-2">
         {lists.map((list, index) => (
-          <div key={index} className="mb-10">
-            <h1 className="text-white text-base md:text-2xl">
-              <FontAwesomeIcon
+          <div key={index} className="mb-5 mt-5">
+            <div className="border border-b-4 border-r-4 border-black px-3 py-2">
+              <h1 className="text-black text-base md:text-2xl">
+                {/* <FontAwesomeIcon
                 icon={faPaperclip}
-                className="mr-3 text-gray-400 md:text-xl"
-              />
-              {list.question}
-            </h1>
-            <div className="mt-3 text-gray-400 text-sm md:text-lg">
+                className="mr-3 text-gray-700 md:text-xl"
+              /> */}
+                {list.question}
+              </h1>
+            </div>
+            <div className="mt-3 text-gray-600 text-sm md:text-lg">
               {!list.li ? (
                 <>
                   <span>{list.answer}</span>

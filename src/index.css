@@ -33,7 +33,7 @@ textarea {
 }
 
 .sidebar {
-  box-shadow: 2px 0 2px -2px #888;
+  box-shadow: 2px 0 2px -2px #000;
 }
 
 .github-corner:hover .octo-arm {
