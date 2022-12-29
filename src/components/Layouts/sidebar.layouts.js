@@ -49,7 +49,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className={` ${
+      className={`${
         open ? "w-44 md:w-72" : "w-12 md:w-16"
       } sidebar h-screen sticky top-0`}
     >
@@ -114,19 +114,22 @@ const Sidebar = () => {
           }}
         />
         <div
-          className={`${open && "border border-b-4 border-r-4 border-black"} ${
+          className={`${open && "border-2 border-black"} ${
             !open && "hidden"
           } px-4 py-4 rounded-lg ${!attention ? "hidden" : ""}`}
+          style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
         >
           <div className={`flex items-center mb-3 ${!open && "hidden"}`}>
             <span
-              className={`border border-b-4 border-r-4 border-red-600 text-red-900 text-xs md:text-sm font-semibold mr-2 px-2.5 py-0.5 rounded`}
+              className={`border-2 border-black bg-red-400 text-black text-xs md:text-sm font-semibold mr-2 px-2.5 py-0.5 rounded`}
+              style={{ boxShadow: "0.2rem 0.2rem 0 #222" }}
             >
               Attention
             </span>
             <button
               type="button"
-              className="ml-auto -mx-1.5 -my-1.5 border border-b-4 border-r-4 border-black text-black rounded-sm focus:ring-2 focus:ring-gray-200 p-0.5 inline-flex h-6 w-6"
+              className="ml-auto -mx-1.5 -my-1.5 border-2 rounded-md border-black text-black focus:ring-2 focus:ring-gray-200 p-0.5 inline-flex h-6 w-6"
+              style={{ boxShadow: "0.2rem 0.2rem 0 #222" }}
               data-collapse-toggle="dropdown-cta"
               aria-label="Close"
               onClick={() => {

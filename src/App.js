@@ -15,7 +15,7 @@ const App = () => {
         <Octocat />
         <div className="flex">
           <Sidebar />
-          <main className="p-7 flex-1 relative">
+          <main className="p-7 flex-1">
             <Routes>
               <Route
                 path="/"

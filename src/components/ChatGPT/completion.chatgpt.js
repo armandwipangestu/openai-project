@@ -49,51 +49,47 @@ const Completion = () => {
         answer: "1. Attack on Titan, 2. Death Note, 3. One Piece",
       },
     },
-    // {
-    //   user: {
-    //     image:
-    //       "me.png",
-    //     question: "Give me 3 Animal Name",
-    //   },
-    //   ai: {
-    //     image: "openai-dark.png",
-    //     answer: "1. Cat, 2. Dog, 3. Lion",
-    //   },
-    // },
-    // {
-    //   user: {
-    //     image:
-    //       "me.png",
-    //     question: "Give me the best programming language at 2022!",
-    //   },
-    //   ai: {
-    //     image: "openai-dark.png",
-    //     answer:
-    //       'It is not possible for me to accurately predict which programming language will be considered the "best" in 2022.',
-    //   },
-    // },
-    // {
-    //   user: {
-    //     image:
-    //       "me.png",
-    //     question: "Give me 3 anime name",
-    //   },
-    //   ai: {
-    //     image: "openai-dark.png",
-    //     answer: "1. Attack on Titan, 2. Death Note, 3. One Piece",
-    //   },
-    // },
-    // {
-    //   user: {
-    //     image:
-    //       "me.png",
-    //     question: "Give me 3 Animal Name",
-    //   },
-    //   ai: {
-    //     image: "openai-dark.png",
-    //     answer: "1. Cat, 2. Dog, 3. Lion",
-    //   },
-    // },
+    {
+      user: {
+        image: "me.png",
+        question: "Give me 3 Animal Name",
+      },
+      ai: {
+        image: "openai-dark.png",
+        answer: "1. Cat, 2. Dog, 3. Lion",
+      },
+    },
+    {
+      user: {
+        image: "me.png",
+        question: "Give me the best programming language at 2022!",
+      },
+      ai: {
+        image: "openai-dark.png",
+        answer:
+          'It is not possible for me to accurately predict which programming language will be considered the "best" in 2022.',
+      },
+    },
+    {
+      user: {
+        image: "me.png",
+        question: "Give me 3 anime name",
+      },
+      ai: {
+        image: "openai-dark.png",
+        answer: "1. Attack on Titan, 2. Death Note, 3. One Piece",
+      },
+    },
+    {
+      user: {
+        image: "me.png",
+        question: "Give me 3 Animal Name",
+      },
+      ai: {
+        image: "openai-dark.png",
+        answer: "1. Cat, 2. Dog, 3. Lion",
+      },
+    },
   ];
 
   return (
@@ -123,20 +119,22 @@ const Completion = () => {
           </>
         ))}
       </div>
-      <div className="flex fixed bottom-0 w-9/12 md:w-9/12 mb-5 md:mb-6">
-        <div className="flex absolute bottom-0 right-0 pb-2 md:pb-2.5 mr-1">
+
+      <div className="flex sticky bottom-14 md:bottom-5 w-full mb-10 md:mb-6">
+        <div className="flex absolute bottom-0 right-0 pb-2 md:pb-2.5 mr-3">
           <button
             type="submit"
             className="items-end py-1 px-2 text-xs font-medium text-center text-black hover:bg-gray-700 rounded-lg"
-            // onClick={generateCompletion}
+            onClick={generateCompletion}
           >
             <FontAwesomeIcon icon={faPaperPlane} />
           </button>
         </div>
         <TextareaAutosize
-          className="w-full border-2 border-black overflow-hidden rounded-md placeholder-gray-500 resize-none py-2 px-4 outline-none"
+          className="w-full border-2 border-black rounded-md placeholder-gray-500 resize-none py-2 pl-3 pr-10 md:pl-5 outline-none"
           placeholder="Enter your message here"
           style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
+          maxRows={5}
         />
       </div>
     </>

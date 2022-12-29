@@ -12,7 +12,8 @@ const Home = (props) => {
       <NavLink to="/chatgpt">
         <button
           type="button"
-          className="mt-5 w-36 md:w-52 md:h-15 md:text-2xl font-medium rounded-lg px-5 py-2.5 border border-b-4 border-r-4 border-black shadow-lg text-center mr-2 mb-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 text-dark"
+          className="mt-5 w-36 md:w-52 md:h-15 md:text-2xl font-medium rounded-lg px-5 py-2.5 border-2 border-black shadow-lg text-center mr-2 mb-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 text-dark"
+          style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
         >
           Let's Go
         </button>
