@@ -82,3 +82,30 @@ code {
 /* .neu-brutalism-shadow {
   box-shadow: 0.4rem 0.4rem 0 #222;
 } */
+
+.dot {
+  display: inline-block;
+  background-color: rgb(75 85 99 / 1);
+  border-radius: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  animation: fade 1s infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
