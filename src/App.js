@@ -3,10 +3,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Chatgpt from "./components/ChatGPT/main.chatgpt";
 import Dalle from "./components/Dall-E/main.dalle";
 import MainLayouts from "./components/Layouts/main.layouts";
-import Sidebar from "./components/Layouts/sidebar.layouts";
+import { Sidebar } from "./components/Layouts/sidebar.layouts";
 import Octocat from "./components/Utilities/octocat";
 import Home from "./components/Home/main.home";
 import FAQ from "./components/FAQ/main.faq";
+import Demo from "./components/Demo/main.demo";
 
 const App = () => {
   return (
@@ -15,7 +16,7 @@ const App = () => {
         <Octocat />
         <div className="flex">
           <Sidebar />
-          <main className="p-7 flex-1 bg-dark">
+          <main className="p-7 flex-1">
             <Routes>
               <Route
                 path="/"
@@ -45,6 +46,7 @@ const App = () => {
                 }
               />
               <Route path="/question" element={<FAQ />} />
+              <Route path="/demo" element={<Demo />} />
             </Routes>
           </main>
         </div>

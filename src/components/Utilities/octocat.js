@@ -16,8 +16,8 @@ const Octocat = () => {
           top: 0,
           right: 0,
           border: 0,
-          fill: "#fff",
-          color: "#1A1C1E",
+          fill: "#1A1C1E",
+          color: "#fff",
         }}
       >
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
