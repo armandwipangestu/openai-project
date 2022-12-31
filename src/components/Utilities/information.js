@@ -40,7 +40,7 @@ const Information = () => {
           </a>
           , also check this{" "}
           <a
-            href="https://github.com/armandwipangestu/openai-project#running-on-localhost"
+            href="https://github.com/armandwipangestu/openai-project#information"
             target="_blank"
             rel="noreferrer"
             className="underline"
