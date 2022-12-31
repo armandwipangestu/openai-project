@@ -32,9 +32,9 @@ code {
   box-shadow: none;
 } */
 
-.sidebar {
-  box-shadow: 2px 0 2px -2px #000;
-}
+/* .sidebar {
+  box-shadow: 3px 0 3px 0 #000;
+} */
 
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;
@@ -85,7 +85,7 @@ code {
 
 .dot {
   display: inline-block;
-  background-color: rgb(75 85 99 / 1);
+  background-color: #000;
   border-radius: 50%;
   width: 0.5rem;
   height: 0.5rem;
@@ -107,5 +107,78 @@ code {
   }
   50% {
     opacity: 1;
+  }
+}
+
+.dot-pulse {
+  position: relative;
+  left: -9999px;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 5px;
+  background-color: #000;
+  color: #000;
+  box-shadow: 9999px 0 0 -5px;
+  animation: dot-pulse 1s infinite linear;
+  animation-delay: 0.25s;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
+.dot-pulse::before,
+.dot-pulse::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 5px;
+  background-color: #000;
+  color: #000;
+}
+.dot-pulse::before {
+  box-shadow: 9984px 0 0 -5px;
+  animation: dot-pulse-before 1s infinite linear;
+  animation-delay: 0s;
+}
+.dot-pulse::after {
+  box-shadow: 10014px 0 0 -5px;
+  animation: dot-pulse-after 1s infinite linear;
+  animation-delay: 0.5s;
+}
+
+@keyframes dot-pulse-before {
+  0% {
+    box-shadow: 9984px 0 0 -5px;
+  }
+  30% {
+    box-shadow: 9984px 0 0 2px;
+  }
+  60%,
+  100% {
+    box-shadow: 9984px 0 0 -5px;
+  }
+}
+@keyframes dot-pulse {
+  0% {
+    box-shadow: 9999px 0 0 -5px;
+  }
+  30% {
+    box-shadow: 9999px 0 0 2px;
+  }
+  60%,
+  100% {
+    box-shadow: 9999px 0 0 -5px;
+  }
+}
+@keyframes dot-pulse-after {
+  0% {
+    box-shadow: 10014px 0 0 -5px;
+  }
+  30% {
+    box-shadow: 10014px 0 0 2px;
+  }
+  60%,
+  100% {
+    box-shadow: 10014px 0 0 -5px;
   }
 }

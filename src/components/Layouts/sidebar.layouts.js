@@ -51,7 +51,7 @@ const Sidebar = () => {
     <div
       className={`${
         open ? "w-44 md:w-72" : "w-12 md:w-16"
-      } sidebar h-screen sticky top-0`}
+      } border-r-2 border-black h-screen sticky top-0`}
     >
       <div className={`flex items-center`}>
         <img
@@ -77,13 +77,13 @@ const Sidebar = () => {
           <NavLink
             to={menu.link}
             style={({ isActive }) => ({
-              color: isActive ? "rgb(31 41 55 / 1)" : "rgb(107 114 128 / 1)",
+              color: isActive ? "#000" : "#696969",
             })}
             key={index}
           >
             <li
               className={`flex rounded-md py-3 md:py-4 px-2 cursor-pointer md:hover:bg-gray-500/10
-             text-sm items-center gap-x-4`}
+               text-sm items-center gap-x-4`}
             >
               <FontAwesomeIcon
                 icon={handleIcon(menu.icon)}
@@ -106,7 +106,7 @@ const Sidebar = () => {
       >
         <FontAwesomeIcon
           icon={faInfoCircle}
-          className={`text-base md:text-lg md:mr-6 ${
+          className={`text-base md:text-lg md:mr-6 text-black ${
             open && "hidden"
           } cursor-pointer ${!attention ? "hidden" : ""}`}
           onClick={() => {
