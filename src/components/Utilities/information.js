@@ -1,17 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Information = ({ link }) => {
+const Information = () => {
   return (
     <>
       <div
         id="alert-additional-content-1"
-        className="p-4 mb-4 border border-blue-300 rounded-lg bg-blue-300"
+        className="p-4 mb-4 mt-5 border-2 border-black rounded-lg bg-blue-300"
+        style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
         role="alert"
       >
         <div className="flex items-center">
           <svg
             aria-hidden="true"
-            className="w-5 h-5 mr-2 text-blue-900"
+            className="w-5 h-5 mr-2 text-dark"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -23,12 +25,11 @@ const Information = ({ link }) => {
             ></path>
           </svg>
           <span className="sr-only">Info</span>
-          <h3 className="text-lg font-medium text-blue-900">Information</h3>
+          <h3 className="text-lg font-medium text-black">Information</h3>
         </div>
-        <div className="mt-2 mb-4 text-sm text-blue-900">
+        <div className="mt-2 mb-4 text-sm text-black">
           Because my API Key has reached the limit, the input form is disabled,
-          to see how this works I have provided the video below, if you want to
-          try it please read{" "}
+          if you want to try it please read{" "}
           <a
             href="https://github.com/armandwipangestu/openai-project#running-on-localhost"
             target="_blank"
@@ -37,13 +38,22 @@ const Information = ({ link }) => {
           >
             this
           </a>
-          .
+          , also check this{" "}
+          <a
+            href="https://github.com/armandwipangestu/openai-project#running-on-localhost"
+            target="_blank"
+            rel="noreferrer"
+            className="underline"
+          >
+            video
+          </a>{" "}
+          to enable input form, button, etc. To see how this is work, check out
+          this{" "}
+          <Link to="/demo" className="underline">
+            demo
+          </Link>
         </div>
       </div>
-      <video className="w-full max-w-full h-auto" controls>
-        <source src={link} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
     </>
   );
 };

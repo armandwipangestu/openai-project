@@ -132,7 +132,7 @@ const Sidebar = () => {
             </span>
             <button
               type="button"
-              className="ml-auto -mx-1.5 -my-1.5 border-2 rounded-md border-black text-black focus:ring-2 focus:ring-gray-200 p-0.5 inline-flex h-6 w-6"
+              className="ml-auto -mx-1.5 -my-1.5 border-2 rounded-md border-black text-black focus:ring-2 focus:ring-gray-200 p-0.5 inline-flex h-6 w-6 hover:bg-red-400"
               style={{ boxShadow: "0.2rem 0.2rem 0 #222" }}
               data-collapse-toggle="dropdown-cta"
               aria-label="Close"

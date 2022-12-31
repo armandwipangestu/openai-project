@@ -1,14 +1,10 @@
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import TextareaAutosize from "react-textarea-autosize";
 import Information from "../Utilities/information";
 import { Configuration, OpenAIApi } from "openai";
-import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 const Completion = () => {
   const [prompt, setPrompt] = useState("");
-  const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
   const [chatLog, setChatLog] = useState([
     {
@@ -17,9 +13,9 @@ const Completion = () => {
       avatar: "openai-dark.png",
     },
     // {
-    //   user: "me",
-    //   message: "I want to use ChatGPT",
-    //   avatar: "me.png",
+    // user: "me",
+    // message: "asdasda",
+    // avatar: "avatar2.png",
     // },
   ]);
   const configuration = new Configuration({
@@ -33,6 +29,7 @@ const Completion = () => {
     setChatLog(chatLogNew);
     setPrompt("");
     setLoading(true);
+    window.document.body.scrollIntoView({ behavior: "smooth", block: "end" });
     const res = await openai.createCompletion({
       prompt: prompt,
       model: "text-davinci-003",
@@ -49,18 +46,43 @@ const Completion = () => {
   return (
     <>
       <div className="min-h-screen flex flex-col justify-start">
-        <div className="">
-          {chatLog.map((log, i) => (
+        <div>
+          {/*
+
+            |--------------------------------------------------------------------------
+            | NOTE: Give Comment on the Component below to remove information
+            |--------------------------------------------------------------------------
+            |
+            |
+
+          */}
+          <Information />
+
+          {/*
+
+            |--------------------------------------------------------------------------
+            | NOTE: Give Uncomment on the code below to make work
+            |--------------------------------------------------------------------------
+            |
+            |
+            
+          */}
+
+          {/* {chatLog.map((log, i) => (
             <>
               {log.user === "me" && (
                 <div
-                  className="flex p-5 rounded-lg mt-5 mb-5 bg-blue-300 border-2 border-black"
+                  className="flex p-5 rounded-lg mb-5 bg-blue-300 border-2 border-black"
                   style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
                   key={i}
                 >
-                  <img src="avatar.png" className="w-6 h-6 mr-3" />
+                  <img
+                    src="avatar2.png"
+                    className="w-8 h-6 mr-2 -ml-1"
+                    alt="user"
+                  />
                   <div>
-                    <span className="text-black">{log.message}</span>
+                    <span className="text-black mt-5">{log.message}</span>
                   </div>
                 </div>
               )}
@@ -70,27 +92,25 @@ const Completion = () => {
                   style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
                   key={i}
                 >
-                  <img src="openai-dark.png" className="w-6 h-6 mr-3" />
+                  <img
+                    src="openai-dark.png"
+                    className="w-6 h-6 mr-3"
+                    alt="gpt"
+                  />
                   <div>
                     <span className="text-black">{log.message}</span>
                   </div>
                 </div>
               )}
             </>
-          ))}
-
+          ))} */}
           {loading && (
             <div className="relative">
               <div
                 className="flex p-5 bg-yellow-400 rounded-lg mt-5 mb-5 border-2 border-black"
                 style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
               >
-                <img src="openai-dark.png" className="w-6 h-6 mr-3" />
-                {/* <div className="dot-container">
-                  <span className="dot mr-2"></span>
-                  <span className="dot mr-2"></span>
-                  <span className="dot mr-2"></span>
-                </div> */}
+                <img src="openai-dark.png" className="w-6 h-6 mr-3" alt="gpt" />
                 <div class="col-3">
                   <div class="snippet" data-title="dot-pulse">
                     <div class="stage">
@@ -106,20 +126,20 @@ const Completion = () => {
         <div className="mt-auto flex sticky bottom-5">
           <div
             className={`flex absolute bottom-0 right-0 md:pb-2.5 px-4 py-2.5 rounded-tr-md rounded-br-md ${
-              prompt && "bg-black text-white px-4 py-2"
+              prompt && "bg-black text-white px-4 py-2.5"
             }`}
           >
-            {/* <button
-              type="submit"
-              className="items-end py-1 px-2 text-xs font-medium text-center text-black hover:bg-gray-400 rounded-lg"
-              onClick={generateCompletion}
-            >
-              <FontAwesomeIcon icon={faPaperPlane} />
-            </button> */}
             <button
               className={`${!prompt && "cursor-not-allowed"}`}
               type="submit"
-              onClick={generateCompletion}
+              //
+              // |--------------------------------------------------------------------------
+              // | NOTE: Uncomment this attribute 'onClick' to hit API OpenAI
+              // |--------------------------------------------------------------------------
+              // |
+              // |
+              //
+              // onClick={generateCompletion}
             >
               Send
             </button>
@@ -131,7 +151,15 @@ const Completion = () => {
             maxRows={5}
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
-            // autoFocus
+            //
+            // |--------------------------------------------------------------------------
+            // | NOTE: Give Comment on the two attributes below to enable input
+            // |--------------------------------------------------------------------------
+            // |
+            // |
+            //
+            disabled
+            readOnly
           />
         </div>
       </div>

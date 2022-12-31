@@ -1,6 +1,4 @@
-import React, { useState, useRef } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
 import Modals from "../Utilities/modals";
 import Information from "../Utilities/information";
@@ -8,14 +6,16 @@ import { Configuration, OpenAIApi } from "openai";
 
 const Image = () => {
   const [prompt, setPrompt] = useState("");
-  const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
-  const [index, setIndex] = useState();
-  const [chatLog, setChatLog] = useState([]);
+  const [chatLog, setChatLog] = useState([
+    // {
+    //   user: "me",
+    //   message: "test",
+    // },
+  ]);
   const [showModal, setShowModal] = useState(false);
   const [modalUrl, setModalUrl] = useState(null);
   const handleOnClose = () => setShowModal(false);
-  const listEndRef = useRef(null);
   const configuration = new Configuration({
     apiKey: process.env.REACT_APP_API_KEY,
   });
@@ -28,7 +28,6 @@ const Image = () => {
     setPrompt("");
     setLoading(true);
     window.document.body.scrollIntoView({ behavior: "smooth", block: "end" });
-    // listEndRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
     const res = await openai.createImage({
       prompt: prompt,
       n: 10,
@@ -78,7 +77,28 @@ const Image = () => {
     <>
       <div className="min-h-screen flex flex-col justify-start">
         <div className="">
-          {chatLog.map((d, i) => (
+          {/*
+
+            |--------------------------------------------------------------------------
+            | NOTE: Give Comment on the Component below to remove information
+            |--------------------------------------------------------------------------
+            |
+            |
+
+          */}
+          <Information />
+
+          {/*
+
+            |--------------------------------------------------------------------------
+            | NOTE: Give Uncomment on the code below to make work
+            |--------------------------------------------------------------------------
+            |
+            |
+            
+          */}
+
+          {/* {chatLog.map((d, i) => (
             <>
               {d.user === "me" && (
                 <div
@@ -86,7 +106,11 @@ const Image = () => {
                   style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
                   key={i}
                 >
-                  <img src="avatar.png" className="w-6 h-6 mr-3" />
+                  <img
+                    src="avatar2.png"
+                    className="w-8 h-6 mr-2 -ml-1"
+                    alt="user"
+                  />
                   <div>
                     <span className="text-black">{d.message}</span>
                   </div>
@@ -122,7 +146,7 @@ const Image = () => {
                 </div>
               )}
             </>
-          ))}
+          ))} */}
           {loading && (
             <div className="relative">
               <div
@@ -132,6 +156,7 @@ const Image = () => {
                 <img
                   src="openai-dark.png"
                   className="w-6 h-6 mr-3 rounded-lg"
+                  alt="gpt"
                 />
                 <div className="col-3">
                   <div className="snippet" data-title="dot-pulse">
@@ -144,7 +169,6 @@ const Image = () => {
             </div>
           )}
         </div>
-        {/* <div ref={listEndRef}></div> */}
         {!showModal && (
           <div className="mt-auto flex flex-col sticky bottom-5 justify-start align-start">
             <div className="mb-2 text-gray-600 text-xs md:text-sm">
@@ -152,7 +176,14 @@ const Image = () => {
               <button
                 className="ml-1 border-2 border-black px-2.5 py-1 rounded-md text-black bg-green-400 hover:bg-green-500 text-xs"
                 style={{ boxShadow: "0.2rem 0.2rem 0 #222" }}
-                onClick={generateSurprise}
+                //
+                // |--------------------------------------------------------------------------
+                // | NOTE: Uncomment this attribute 'onClick' to hit Generate a Surprise
+                // |--------------------------------------------------------------------------
+                // |
+                // |
+                //
+                // onClick={generateSurprise}
               >
                 Surprise me
               </button>
@@ -165,7 +196,14 @@ const Image = () => {
               <button
                 className={`${!prompt && "cursor-not-allowed"}`}
                 type="submit"
-                onClick={generateImage}
+                //
+                // |--------------------------------------------------------------------------
+                // | NOTE: Uncomment this attribute 'onClick' to hit API OpenAI
+                // |--------------------------------------------------------------------------
+                // |
+                // |
+                //
+                // onClick={generateImage}
               >
                 Generate
               </button>
@@ -177,7 +215,15 @@ const Image = () => {
               maxRows={5}
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              // autoFocus
+              //
+              // |--------------------------------------------------------------------------
+              // | NOTE: Give Comment on the two attributes below to enable input
+              // |--------------------------------------------------------------------------
+              // |
+              // |
+              //
+              disabled
+              readOnly
             />
           </div>
         )}
