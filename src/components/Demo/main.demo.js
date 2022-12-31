@@ -4,12 +4,14 @@ const Demo = () => {
   const lists = [
     {
       name: "ChatGPT",
-      source: "chatgpt.mp4",
+      source:
+        "https://user-images.githubusercontent.com/64394320/210139372-824284d8-6170-4308-95f2-02d0f272fa67.mp4",
       color: "#FAAE2B",
     },
     {
       name: "Dall·E 2",
-      source: "dalle.mp4",
+      source:
+        "https://user-images.githubusercontent.com/64394320/210139754-bf37f019-1dac-49ae-9f9f-56b2e618c575.mp4",
       color: "#FE98A3",
     },
   ];
