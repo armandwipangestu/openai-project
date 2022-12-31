@@ -7,6 +7,7 @@ import { Sidebar } from "./components/Layouts/sidebar.layouts";
 import Octocat from "./components/Utilities/octocat";
 import Home from "./components/Home/main.home";
 import FAQ from "./components/FAQ/main.faq";
+import Demo from "./components/Demo/main.demo";
 
 const App = () => {
   return (
@@ -45,6 +46,7 @@ const App = () => {
                 }
               />
               <Route path="/question" element={<FAQ />} />
+              <Route path="/demo" element={<Demo />} />
             </Routes>
           </main>
         </div>

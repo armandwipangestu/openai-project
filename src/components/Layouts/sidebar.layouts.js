@@ -6,6 +6,7 @@ import {
   faInfoCircle,
   faQuestionCircle,
   faHouse,
+  faVideo,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 
@@ -18,6 +19,7 @@ const Sidebar = () => {
     { title: "ChatGPT", link: "/chatgpt", icon: "faMessage" },
     { title: "Dall·E", link: "/dall-e", icon: "faImages" },
     { title: "FAQs", link: "/question", icon: "faQuestionCircle" },
+    { title: "Demo", link: "/demo", icon: "faVideo" },
   ];
 
   const handleIcon = (icon) => {
@@ -30,6 +32,8 @@ const Sidebar = () => {
         return faQuestionCircle;
       case "faHouse":
         return faHouse;
+      case "faVideo":
+        return faVideo;
       default:
         return "";
     }

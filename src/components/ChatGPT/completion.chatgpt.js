@@ -131,7 +131,7 @@ const Completion = () => {
             maxRows={5}
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
-            autoFocus
+            // autoFocus
           />
         </div>
       </div>
