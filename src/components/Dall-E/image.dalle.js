@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import TextareaAutosize from "react-textarea-autosize";
 import Modals from "../Utilities/modals";
 import Information from "../Utilities/information";
 import { Configuration, OpenAIApi } from "openai";
@@ -9,6 +10,8 @@ const Image = () => {
   const [prompt, setPrompt] = useState("");
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
+  const [index, setIndex] = useState();
+  const [chatLog, setChatLog] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [modalUrl, setModalUrl] = useState(null);
   const handleOnClose = () => setShowModal(false);
@@ -19,6 +22,9 @@ const Image = () => {
   const openai = new OpenAIApi(configuration);
 
   const generateImage = async () => {
+    let chatLogNew = [...chatLog, { user: "me", message: prompt }];
+    setChatLog(chatLogNew);
+    setPrompt("");
     setLoading(true);
     const res = await openai.createImage({
       prompt: prompt,
@@ -26,132 +32,160 @@ const Image = () => {
       size: "1024x1024",
     });
     setLoading(false);
-    setResult(res.data.data);
+    setChatLog([...chatLogNew, { user: "dall-e", message: res.data.data }]);
+    // setResult(res.data.data);
   };
+
+  // const dummy = [
+  //   {
+  //     user: "me",
+  //     message: "Hanya percobaan",
+  //   },
+  //   {
+  //     user: "dall-e",
+  //     message: [
+  //       {
+  //         url: "me.png",
+  //       },
+  //       {
+  //         url: "me.png",
+  //       },
+  //       {
+  //         url: "me.png",
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     user: "me",
+  //     message: "Hanya percobaan 2",
+  //   },
+  //   {
+  //     user: "dall-e",
+  //     message: [
+  //       {
+  //         url: "avatar.png",
+  //       },
+  //       {
+  //         url: "avatar.png",
+  //       },
+  //       {
+  //         url: "avatar.png",
+  //       },
+  //       {
+  //         url: "avatar.png",
+  //       },
+  //       {
+  //         url: "avatar.png",
+  //       },
+  //     ],
+  //   },
+  // ];
+
+  // dummy.map((data) => {
+  //   if (data.user === "dall-e") {
+  //     data.message.map((d) => {
+  //       console.log(d.url);
+  //     });
+  //   }
+  // });
 
   return (
     <>
-      <div className="mt-10 relative">
-        <label className="block mb-2 text-sm md:text-lg font-normal text-gray-300">
-          Give AI Text
-        </label>
-        <div className="w-full mb-4 border rounded-lg bg-dark-2 border-gray-600">
-          <div className="px-4 py-2 rounded-t-lg bg-neutral-900">
-            <textarea
-              id="comment"
-              rows="5"
-              className="w-full px-0 text-sm md:text-lg border-0 bg-neutral-900 focus:ring-0 text-white placeholder-gray-500"
-              placeholder="Write a comment..."
-              required
-              onChange={(e) => setPrompt(e.target.value)}
-              //
-              // |--------------------------------------------------------------------------
-              // | NOTE: Give Comment on the two attributes below to enable input
-              // |--------------------------------------------------------------------------
-              // |
-              // |
-              //
-              disabled
-              readOnly
-            ></textarea>
-          </div>
-          <div className="flex items-end justify-end px-3 py-2 border-t border-gray-600">
-            <button
-              type="submit"
-              className="flex items-end py-2.5 px-4 text-xs font-medium text-center text-white bg-neutral-900 rounded-lg focus:ring-4 focus:ring-gray-200 hover:bg-neutral-700"
-              //
-              // |--------------------------------------------------------------------------
-              // | NOTE: Uncomment this attribute 'onClick' to hit API OpenAI
-              // |--------------------------------------------------------------------------
-              // |
-              // |
-              //
-              // onClick={generateImage}
-            >
-              <FontAwesomeIcon icon={faPaperPlane} />
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* 
-      
-      |--------------------------------------------------------------------------
-      | NOTE: Give Comment on the Component below to remove
-      |--------------------------------------------------------------------------
-      | 
-      |
-
-      */}
-      <Information link="/dalle.mp4" />
-
-      {loading ? (
-        <>
-          <div className="flex flex-col items-center">
-            <button
-              disabled
-              type="button"
-              className="py-2.5 px-5 mr-2 text-sm font-medium rounded-lg border bg-neutral-900 border-gray-600 text-white items-center"
-            >
-              <svg
-                role="status"
-                className="inline mr-2 w-4 h-4 text-white animate-spin"
-                viewBox="0 0 100 101"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                  fill="currentColor"
-                />
-                <path
-                  d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                  fill="#1C64F2"
-                />
-              </svg>
-              Loading...
-            </button>
-          </div>
-        </>
-      ) : (
-        <>
-          {result.length > 0 ? (
-            <div className="mb-5">
-              <label className="block mb-2 text-sm md:text-lg font-normal text-gray-300">
-                Result
-              </label>
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-                {result.map((data, i) => {
-                  return (
-                    <React.Fragment key={i}>
-                      <button
-                        onClick={() => {
-                          setShowModal(true);
-                          setModalUrl(data.url);
-                        }}
-                      >
+      <div className="min-h-screen flex flex-col justify-start">
+        <div className="">
+          {chatLog.map((d, i) => (
+            <>
+              {d.user === "me" && (
+                <div
+                  className="flex p-5 rounded-lg mt-5 mb-5 bg-blue-300 border-2 border-black"
+                  style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
+                  key={i}
+                >
+                  <img src="avatar.png" className="w-6 h-6 mr-3" />
+                  <div>
+                    <span className="text-black">{d.message}</span>
+                  </div>
+                </div>
+              )}
+              {d.user === "dall-e" && (
+                // d.message.map((res) => {
+                //   console.log(res.url);
+                // })
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+                  {d.message.map((res, i) => {
+                    // console.log(index);
+                    // console.log(chatLog);
+                    // console.log(d.message);
+                    // console.log(res);
+                    // console.log(res[0]);
+                    // console.log(res[0].url);
+                    // setIndex(index + 1);
+                    return (
+                      <React.Fragment key={i}>
                         <img
                           className="max-w-lg rounded-lg w-full h-48"
-                          src={data.url}
+                          src={res.url}
                           alt={`${i}`}
                         />
-                      </button>
-                    </React.Fragment>
-                  );
-                })}
-                <Modals
-                  onClose={handleOnClose}
-                  visible={showModal}
-                  url={modalUrl}
-                  name={prompt}
-                />
+                      </React.Fragment>
+                    );
+                  })}
+                </div>
+              )}
+            </>
+          ))}
+          {loading && (
+            <div className="relative">
+              <div
+                className="flex p-5 bg-yellow-400 rounded-lg mt-5 mb-5 border-2 border-black"
+                style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
+              >
+                <img src="openai-dark.png" className="w-6 h-6 mr-3" />
+                <div class="col-3">
+                  <div class="snippet" data-title="dot-pulse">
+                    <div class="stage">
+                      <div class="dot-pulse"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          ) : (
-            <></>
           )}
-        </>
-      )}
+        </div>
+        <div className="mt-auto flex flex-col sticky bottom-5 justify-start align-start">
+          <div className="mb-2 text-gray-600 text-xs md:text-sm">
+            Start with a detailed description
+            <button
+              className="ml-1 border-2 border-black px-2.5 py-1 rounded-md text-black hover:text-white hover:bg-black text-xs"
+              style={{ boxShadow: "0.2rem 0.2rem 0 #222" }}
+            >
+              Surprise me
+            </button>
+          </div>
+          <div
+            className={`flex absolute bottom-0 right-0 md:pb-2.5 px-4 py-2.5 rounded-tr-md rounded-br-md ${
+              prompt && "bg-black text-white px-4 py-2.5"
+            }`}
+          >
+            <button
+              className={`${!prompt && "cursor-not-allowed"}`}
+              type="submit"
+              onClick={generateImage}
+            >
+              Generate
+            </button>
+          </div>
+          <TextareaAutosize
+            className="w-full border-2 border-black rounded-md placeholder-gray-500 resize-none py-2 pl-3 pr-10 md:pl-5 outline-none"
+            placeholder="Enter your message here"
+            style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
+            maxRows={5}
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            autoFocus
+          />
+        </div>
+      </div>
     </>
   );
 };
