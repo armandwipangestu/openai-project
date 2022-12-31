@@ -50,68 +50,297 @@ You must first register on the [openai website](https://beta.openai.com/), then 
 
 > Because my API Key has reached the limit, the input form is disabled
 
-To enable input form and button (to hit the API to OpenAI) give comment the `disabled` and `readOnly` attributes on the `<textarea>` tag and uncomment the `onClick` attribute on the `<button>` tag
+To enable input form and button (to hit the API to OpenAI) give comment the `disabled` and `readOnly` attributes on the `<textarea>` tag and uncomment the `onClick` attribute on the `<button>` tag. To enable chatLog give uncomment the loop or map code
 
 - `src/components/ChatGPT/completion.chatgpt.js`
+
+https://user-images.githubusercontent.com/64394320/210139174-8cf0e038-d9a2-4ff0-97cc-ef654ca491d7.mp4
 
 ```javascript
 const Completion = () => {
     ...
-        <div className="w-full mb-4 border rounded-lg bg-dark-2 border-gray-600">
-          <div className="px-4 py-2 rounded-t-lg bg-neutral-900">
-            <textarea
-              id="comment"
-              rows="5"
-              className="w-full px-0 text-sm md:text-lg border-0 bg-neutral-900 focus:ring-0 text-white placeholder-gray-500"
-              placeholder="Write a comment..."
-              required
-              onChange={(e) => setPrompt(e.target.value)}
-              // disabled
-              // readOnly
-            ></textarea>
-          </div>
-          <div className="flex items-end justify-end px-3 py-2 border-t border-gray-600">
+      <div className="min-h-screen flex flex-col justify-start">
+        <div>
+          {/*
+
+            |--------------------------------------------------------------------------
+            | NOTE: Give Comment on the Component below to remove information
+            |--------------------------------------------------------------------------
+            |
+            |
+
+          */}
+          {/* <Information /> */}
+
+          {/*
+
+            |--------------------------------------------------------------------------
+            | NOTE: Give Uncomment on the code below to make work
+            |--------------------------------------------------------------------------
+            |
+            |
+
+          */}
+
+          {chatLog.map((log, i) => (
+            <>
+              {log.user === "me" && (
+                <div
+                  className="flex p-5 rounded-lg mb-5 bg-blue-300 border-2 border-black"
+                  style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
+                  key={i}
+                >
+                  <img
+                    src="avatar2.png"
+                    className="w-8 h-6 mr-2 -ml-1"
+                    alt="user"
+                  />
+                  <div>
+                    <span className="text-black mt-5">{log.message}</span>
+                  </div>
+                </div>
+              )}
+              {log.user === "gpt" && (
+                <div
+                  className="flex p-5 bg-yellow-400 rounded-lg mt-5 mb-5 border-2 border-black"
+                  style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
+                  key={i}
+                >
+                  <img
+                    src="openai-dark.png"
+                    className="w-6 h-6 mr-3"
+                    alt="gpt"
+                  />
+                  <div>
+                    <span className="text-black">{log.message}</span>
+                  </div>
+                </div>
+              )}
+            </>
+          ))}
+          {loading && (
+            <div className="relative">
+              <div
+                className="flex p-5 bg-yellow-400 rounded-lg mt-5 mb-5 border-2 border-black"
+                style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
+              >
+                <img src="openai-dark.png" className="w-6 h-6 mr-3" alt="gpt" />
+                <div class="col-3">
+                  <div class="snippet" data-title="dot-pulse">
+                    <div class="stage">
+                      <div class="dot-pulse"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="mt-auto flex sticky bottom-5">
+          <div
+            className={`flex absolute bottom-0 right-0 md:pb-2.5 px-4 py-2.5 rounded-tr-md rounded-br-md ${
+              prompt && "bg-black text-white px-4 py-2.5"
+            }`}
+          >
             <button
+              className={`${!prompt && "cursor-not-allowed"}`}
               type="submit"
-              className="flex items-end py-2.5 px-4 text-xs font-medium text-center text-white bg-neutral-900 rounded-lg focus:ring-4 focus:ring-gray-200 hover:bg-neutral-700"
+              //
+              // |--------------------------------------------------------------------------
+              // | NOTE: Uncomment this attribute 'onClick' to hit API OpenAI
+              // |--------------------------------------------------------------------------
+              // |
+              // |
+              //
               onClick={generateCompletion}
             >
-              <FontAwesomeIcon icon={faPaperPlane} />
+              Send
             </button>
           </div>
+          <TextareaAutosize
+            className="w-full border-2 border-black rounded-md placeholder-gray-500 resize-none py-2 pl-3 pr-10 md:pl-5 outline-none"
+            placeholder="Enter your message here"
+            style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
+            maxRows={5}
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            //
+            // |--------------------------------------------------------------------------
+            // | NOTE: Give Comment on the two attributes below to enable input
+            // |--------------------------------------------------------------------------
+            // |
+            // |
+            //
+            // disabled
+            // readOnly
+          />
         </div>
+      </div>
     ...
 }
 ```
 
 - `src/components/Dall-E/image.dalle.js`
 
+https://user-images.githubusercontent.com/64394320/210139273-39e9aa02-4fb0-483c-a69a-e6931b4b5daf.mp4
+
 ```javascript
 const Image = () => {
     ...
-        <div className="w-full mb-4 border rounded-lg bg-dark-2 border-gray-600">
-          <div className="px-4 py-2 rounded-t-lg bg-neutral-900">
-            <textarea
-              id="comment"
-              rows="5"
-              className="w-full px-0 text-sm md:text-lg border-0 bg-neutral-900 focus:ring-0 text-white placeholder-gray-500"
-              placeholder="Write a comment..."
-              required
+      <div className="min-h-screen flex flex-col justify-start">
+        <div className="">
+          {/*
+
+            |--------------------------------------------------------------------------
+            | NOTE: Give Comment on the Component below to remove information
+            |--------------------------------------------------------------------------
+            |
+            |
+
+          */}
+          {/* <Information /> */}
+
+          {/*
+
+            |--------------------------------------------------------------------------
+            | NOTE: Give Uncomment on the code below to make work
+            |--------------------------------------------------------------------------
+            |
+            |
+
+          */}
+
+          {chatLog.map((d, i) => (
+            <>
+              {d.user === "me" && (
+                <div
+                  className="flex p-5 rounded-lg mt-5 mb-5 bg-blue-300 border-2 border-black"
+                  style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
+                  key={i}
+                >
+                  <img
+                    src="avatar2.png"
+                    className="w-8 h-6 mr-2 -ml-1"
+                    alt="user"
+                  />
+                  <div>
+                    <span className="text-black">{d.message}</span>
+                  </div>
+                </div>
+              )}
+              {d.user === "dall-e" && (
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-5">
+                  {d.message.map((res, i) => {
+                    return (
+                      <React.Fragment key={i}>
+                        <button
+                          onClick={() => {
+                            setShowModal(true);
+                            setModalUrl(res.url);
+                          }}
+                        >
+                          <img
+                            className="max-w-lg rounded-sm w-full h-48 md:hover:h-44 border-2 border-black"
+                            style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
+                            src={res.url}
+                            alt={`${i}`}
+                          />
+                        </button>
+                      </React.Fragment>
+                    );
+                  })}
+                  <Modals
+                    onClose={handleOnClose}
+                    visible={showModal}
+                    url={modalUrl}
+                    name={prompt}
+                  />
+                </div>
+              )}
+            </>
+          ))}
+          {loading && (
+            <div className="relative">
+              <div
+                className="flex p-5 bg-yellow-400 rounded-lg mt-5 mb-5 border-2 border-black"
+                style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
+              >
+                <img
+                  src="openai-dark.png"
+                  className="w-6 h-6 mr-3 rounded-lg"
+                  alt="gpt"
+                />
+                <div className="col-3">
+                  <div className="snippet" data-title="dot-pulse">
+                    <div className="stage">
+                      <div className="dot-pulse"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+        {!showModal && (
+          <div className="mt-auto flex flex-col sticky bottom-5 justify-start align-start">
+            <div className="mb-2 text-gray-600 text-xs md:text-sm">
+              Start with a detailed description
+              <button
+                className="ml-1 border-2 border-black px-2.5 py-1 rounded-md text-black bg-green-400 hover:bg-green-500 text-xs"
+                style={{ boxShadow: "0.2rem 0.2rem 0 #222" }}
+                //
+                // |--------------------------------------------------------------------------
+                // | NOTE: Uncomment this attribute 'onClick' to hit Generate a Surprise
+                // |--------------------------------------------------------------------------
+                // |
+                // |
+                //
+                onClick={generateSurprise}
+              >
+                Surprise me
+              </button>
+            </div>
+            <div
+              className={`flex absolute bottom-0 right-0 md:pb-2.5 px-4 py-2.5 rounded-tr-md rounded-br-md ${
+                prompt && "bg-black text-white px-4 py-2.5"
+              }`}
+            >
+              <button
+                className={`${!prompt && "cursor-not-allowed"}`}
+                type="submit"
+                //
+                // |--------------------------------------------------------------------------
+                // | NOTE: Uncomment this attribute 'onClick' to hit API OpenAI
+                // |--------------------------------------------------------------------------
+                // |
+                // |
+                //
+                onClick={generateImage}
+              >
+                Generate
+              </button>
+            </div>
+            <TextareaAutosize
+              className="w-full border-2 border-black rounded-md placeholder-gray-500 resize-none py-2 pl-3 pr-10 md:pl-5 outline-none"
+              placeholder="Enter your message here"
+              style={{ boxShadow: "0.4rem 0.4rem 0 #222" }}
+              maxRows={5}
+              value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
+              //
+              // |--------------------------------------------------------------------------
+              // | NOTE: Give Comment on the two attributes below to enable input
+              // |--------------------------------------------------------------------------
+              // |
+              // |
+              //
               // disabled
               // readOnly
-            ></textarea>
+            />
           </div>
-          <div className="flex items-end justify-end px-3 py-2 border-t border-gray-600">
-            <button
-              type="submit"
-              className="flex items-end py-2.5 px-4 text-xs font-medium text-center text-white bg-neutral-900 rounded-lg focus:ring-4 focus:ring-gray-200 hover:bg-neutral-700"
-              onClick={generateImage}
-            >
-              <FontAwesomeIcon icon={faPaperPlane} />
-            </button>
-          </div>
-        </div>
+        )}
+      </div>
     ...
 };
 ```
@@ -120,8 +349,8 @@ const Image = () => {
 
 - ChatGPT
 
-https://user-images.githubusercontent.com/64394320/208843842-e822b776-cc68-4f82-a3a9-28c8da0bdb9c.mp4
+https://user-images.githubusercontent.com/64394320/210139372-824284d8-6170-4308-95f2-02d0f272fa67.mp4
 
 - Dall-E
 
-https://user-images.githubusercontent.com/64394320/208843936-b646c7b9-81e2-490e-92db-73bc304990b6.mp4
+https://user-images.githubusercontent.com/64394320/210139754-bf37f019-1dac-49ae-9f9f-56b2e618c575.mp4
